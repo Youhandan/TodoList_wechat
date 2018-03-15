@@ -18,3 +18,8 @@
   flex-direction: column;
   padding: 20rpx;
 }
+.todo-item-completed {
+  text-decoration: line-through;
+  color: #aaaaaa;
+  font-style: italic;
+}
