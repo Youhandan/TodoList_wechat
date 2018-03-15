@@ -33,6 +33,9 @@
   padding: 20rpx;
   display: flex;
   justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 .active-filter {
   background-color: #009eff;

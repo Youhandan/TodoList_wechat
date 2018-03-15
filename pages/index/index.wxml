@@ -11,15 +11,17 @@
     />
     <button bindtap="addTodoItem" class="todo-add-button">Add</button>
   </view>
-  <checkbox-group bindchange="completeTodoItem" class="todo-list">
-    <view wx:for="{{showTodoList}}" wx:key="name" class="todo-item">
-      <label class="{{item.checked ? 'todo-item-completed' : ''}}">
-        <checkbox value="{{item.name}}" checked="{{item.checked}}"/>
-        {{item.value}}
-      </label>
-      <icon type="cancel" size="25" bindtap="deleteTodoItem" id="{{item.name}}"/>
-    </view>
-  </checkbox-group>
+  <scroll-view scroll-y="true" style="height: 850rpx;">
+    <checkbox-group bindchange="completeTodoItem" class="todo-list">
+      <view wx:for="{{showTodoList}}" wx:key="name" class="todo-item">
+        <label class="{{item.checked ? 'todo-item-completed' : ''}}">
+          <checkbox value="{{item.name}}" checked="{{item.checked}}"/>
+          {{item.value}}
+        </label>
+        <icon type="cancel" size="25" bindtap="deleteTodoItem" id="{{item.name}}"/>
+      </view>
+    </checkbox-group>
+  </scroll-view>
   <view class="todo-list-operation-bar">
     <button
       id="all"
