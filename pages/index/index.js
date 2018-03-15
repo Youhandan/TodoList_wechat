@@ -3,6 +3,17 @@
 const app = getApp()
 
 Page({
+	deleteTodoItem: function (event) {
+    const deleteItemName = event.target.id
+    const newTodoList = this.data.todoList.filter(function (item) {
+      return item.name !== deleteItemName
+    })
+
+    this.setData({
+      todoList: newTodoList
+    })
+  },
+
   bindKeyInput: function (event) {
     this.setData({
       inputValue: event.detail.value

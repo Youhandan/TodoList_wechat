@@ -18,6 +18,12 @@
   flex-direction: column;
   padding: 20rpx;
 }
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+}
 .todo-item-completed {
   text-decoration: line-through;
   color: #aaaaaa;
