@@ -11,8 +11,8 @@
     />
     <button bindtap="addTodoItem" class="todo-add-button">Add</button>
   </view>
-  <checkbox-group bindchange="completeTodoItem" class="todo-list">
-    <label wx:for="{{todoList}}" class="{{item.checked ? 'todo-item-completed' : ''}}">
+  <checkbox-group bindchange="completeTodoItem" class="todo-list" >
+    <label wx:for="{{todoList}}" wx:key="value" class="{{item.checked ? 'todo-item-completed' : ''}}">
       <checkbox value="{{item.name}}" checked="{{item.checked}}"/>
       {{item.value}}
     </label>
