@@ -3,12 +3,50 @@
 const app = getApp()
 
 Page({
+
+  updateShowTodoList: function (todoList, filter) {
+    switch (filter) {
+      case 'all': {
+        this.setData({
+          showTodoList: todoList
+        })
+        break
+      }
+      case 'active': {
+        this.setData({
+          showTodoList: todoList.filter(function (item) {
+            return item.checked == false
+          })
+        })
+        break
+      }
+      case 'completed': {
+        this.setData({
+          showTodoList: todoList.filter(function (item) {
+            return item.checked == true
+          })
+        })
+      }
+    }
+  },
+
+	filterTodoItems: function (event) {
+    const tapFilterBtn = event.target.id
+    if (tapFilterBtn == this.data.filter) return
+
+    this.updateShowTodoList(this.data.todoList, tapFilterBtn)
+    this.setData({
+      filter: tapFilterBtn
+    })
+	},
+
 	deleteTodoItem: function (event) {
     const deleteItemName = event.target.id
     const newTodoList = this.data.todoList.filter(function (item) {
       return item.name !== deleteItemName
     })
 
+    this.updateShowTodoList(newTodoList, this.data.filter)
     this.setData({
       todoList: newTodoList
     })
@@ -26,8 +64,11 @@ Page({
       value: this.data.inputValue,
       checked: false
     }
+    const newTodoList = this.data.todoList.concat(todoItem)
+
+    this.updateShowTodoList(newTodoList, this.data.filter)
     this.setData({
-      todoList: this.data.todoList.concat(todoItem),
+      todoList: newTodoList,
       inputValue: ''
     })
   },
@@ -39,6 +80,7 @@ Page({
       return {...item, checked: false}
     })
 
+    this.updateShowTodoList(newTodoList, this.data.filter)
     this.setData({
       todoList: newTodoList
     })
@@ -46,7 +88,8 @@ Page({
 
   data: {
     inputValue: '',
-    todoList: []
+    todoList: [],
+    showTodoList: [],
+    filter: 'all'
   },
-  
 })

@@ -29,3 +29,13 @@
   color: #aaaaaa;
   font-style: italic;
 }
+.todo-list-operation-bar {
+  padding: 20rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.active-filter {
+  background-color: #009eff;
+  border: none !important;
+  color: white;
+}
