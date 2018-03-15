@@ -1,13 +1,20 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<view>
+  <view>
+    <input
+      class="todo-input"
+      placeholder="What needs to be done?"
+      placeholder-class="todo-input-placeholder"
+      auto-focus
+      value="{{inputValue}}"
+      bindinput="bindKeyInput"
+    />
+    <button bindtap="addTodoItem" class="todo-add-button">Add</button>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+  <checkbox-group bindchange="checkboxChange" class="todo-list">
+    <label wx:for="{{todoList}}">
+      <checkbox value="{{item.name}}" checked="{{item.checked}}"/>
+      {{item.value}}
+    </label>
+  </checkbox-group>
 </view>

@@ -1,21 +1,20 @@
 /**index.wxss**/
-.userinfo {
+.todo-input {
+  margin: 20rpx;
+  padding: 20rpx;
+  border: 2rpx solid #009eff;
+  border-radius: 20rpx;
+}
+.todo-input-placeholder {
+  color: #aaaaaa;
+}
+.todo-add-button {
+  margin: 20rpx;
+  color: white;
+  background-color: #009eff;
+}
+.todo-list {
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 200px;
+  padding: 20rpx;
 }
