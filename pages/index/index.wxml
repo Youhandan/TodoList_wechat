@@ -14,11 +14,18 @@
   <scroll-view scroll-y="true" style="height: 850rpx;">
     <checkbox-group bindchange="changeTodoItemStatus" class="todo-list">
       <view wx:for="{{showTodoList}}" wx:key="name" class="todo-item">
-        <label class="{{item.checked ? 'todo-item-completed' : ''}}">
-          <checkbox value="{{item.name}}" checked="{{item.checked}}"/>
+        <label
+          class="inner txt {{item.checked ? 'todo-item-completed' : ''}}"
+          style="{{item.txtStyle}}"
+          bindtouchstart="touchS"
+          bindtouchmove="touchM"
+          bindtouchend="touchE"
+          data-index="{{index}}"
+        >
+          <checkbox value="{{item.name}}" checked="{{item.checked}}"  data-index="{{index}}"/>
           {{item.value}}
         </label>
-        <icon type="cancel" size="25" bindtap="deleteTodoItem" id="{{item.name}}"/>
+        <view class="inner deleteBtn" bindtap="deleteTodoItem" id="{{item.name}}">删除</view>
       </view>
     </checkbox-group>
   </scroll-view>

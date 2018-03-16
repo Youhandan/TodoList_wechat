@@ -16,13 +16,27 @@
 .todo-list {
   display: flex;
   flex-direction: column;
-  padding: 20rpx;
+  padding: 0 20rpx;
 }
 .todo-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20rpx;
+  position: relative;
+  height: 100rpx;
+  line-height: 100rpx;
+  overflow: hidden;
+}
+.inner {
+  position: absolute;
+  top: 0
+}
+.inner.txt{
+  width: 100%;
+  background-color: #fff;
+  z-index: 5;
+  padding:0 10rpx;
+  transition: left 0.2s ease-in-out;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .todo-item-completed {
   text-decoration: line-through;
@@ -41,4 +55,13 @@
   background-color: #009eff;
   border: none !important;
   color: white;
+}
+
+.inner.deleteBtn {
+  background-color: #e64340;
+  width: 180rpx;
+  text-align: center;
+  z-index: 4;
+  right: 0;
+  color: #fff
 }
