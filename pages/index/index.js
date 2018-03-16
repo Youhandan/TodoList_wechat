@@ -73,12 +73,20 @@ Page({
     })
   },
 
-  completeTodoItem: function (event) {
+  changeTodoItemStatus: function (event) {
     const completedItem = event.detail.value
-    const newTodoList = this.data.todoList.map(function (item) {
-      if (completedItem.includes(item.name)) return {...item, checked: true}
-      return {...item, checked: false}
-    })
+    let newTodoList = []
+    if (this.data.filter == 'active') {
+      newTodoList = this.data.todoList.map(function (item) {
+        if (completedItem.includes(item.name)) return {...item, checked: true}
+        return item
+      })
+    } else {
+      newTodoList = this.data.todoList.map(function (item) {
+        if (completedItem.includes(item.name)) return {...item, checked: true}
+        return {...item, checked: false}
+      })
+    }
 
     this.updateShowTodoList(newTodoList, this.data.filter)
     this.setData({

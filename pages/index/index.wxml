@@ -12,7 +12,7 @@
     <button bindtap="addTodoItem" class="todo-add-button">Add</button>
   </view>
   <scroll-view scroll-y="true" style="height: 850rpx;">
-    <checkbox-group bindchange="completeTodoItem" class="todo-list">
+    <checkbox-group bindchange="changeTodoItemStatus" class="todo-list">
       <view wx:for="{{showTodoList}}" wx:key="name" class="todo-item">
         <label class="{{item.checked ? 'todo-item-completed' : ''}}">
           <checkbox value="{{item.name}}" checked="{{item.checked}}"/>
