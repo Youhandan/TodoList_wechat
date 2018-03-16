@@ -39,8 +39,8 @@ Page({
         }
       }
 
-      var index = event.target.dataset.index;
-      var list = this.data.showTodoList;
+      const index = event.target.dataset.index;
+      let list = this.data.showTodoList;
       list[index].txtStyle = txtStyle;
       //更新列表的状态
       this.setData({
@@ -59,9 +59,9 @@ Page({
   },
 
   initDataTxtStyle: function () {
-    var list = this.data.showTodoList
+    let list = this.data.showTodoList
     for (var i = 0; i < list.length; i++) {
-      list[i].txtStyle = ""
+      list[i].txtStyle = "left: 0px"
     }
     this.setData({ showTodoList: list })
   },
@@ -124,7 +124,8 @@ Page({
     const todoItem = {
       name: this.data.inputValue,
       value: this.data.inputValue,
-      checked: false
+      checked: false,
+      txtStyle: "left: 0px"
     }
     const newTodoList = this.data.todoList.concat(todoItem)
 
@@ -159,14 +160,8 @@ Page({
   data: {
     inputValue: '',
     delBtnWidth: 180,//删除按钮宽度单位（rpx）
-    todoList: [
-      {name: '123', value: '123', checked: false, txtStyle: ''},
-      {name: 'df', value: 'df', checked: false, txtStyle: ''},
-    ],
-    showTodoList: [
-      {name: '123', value: '123', checked: false, txtStyle: ''},
-      {name: 'df', value: 'df', checked: false, txtStyle: ''},
-    ],
+    todoList: [],
+    showTodoList: [],
     filter: 'all'
   },
 })
