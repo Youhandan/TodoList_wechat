@@ -1,6 +1,6 @@
 /**index.wxss**/
 page {
-    height: 100%;
+  height: 100%;
 }
 .todo-input {
   margin: 20rpx;

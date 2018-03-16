@@ -18,8 +18,8 @@
           class="inner txt {{item.checked ? 'todo-item-completed' : ''}}"
           style="{{item.txtStyle}}"
           bindtouchstart="touchS"
-          catchtouchmove="touchM"
-          catchtouchend="touchE"
+          bindtouchmove="touchM"
+          bindtouchend="touchE"
           data-index="{{index}}"
         >
           <checkbox value="{{item.name}}" checked="{{item.checked}}"  data-index="{{index}}"/>
