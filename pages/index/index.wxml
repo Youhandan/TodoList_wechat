@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view>
+<scroll-view style="height: 100%; position: relative">
   <view>
     <input
       class="todo-input"
@@ -11,15 +11,15 @@
     />
     <button bindtap="addTodoItem" class="todo-add-button">Add</button>
   </view>
-  <scroll-view scroll-y="true" style="height: 850rpx;">
+  <scroll-view scroll-y="true" style="height: 850rpx">
     <checkbox-group bindchange="changeTodoItemStatus" class="todo-list">
       <view wx:for="{{showTodoList}}" wx:key="name" class="todo-item">
         <label
           class="inner txt {{item.checked ? 'todo-item-completed' : ''}}"
           style="{{item.txtStyle}}"
           bindtouchstart="touchS"
-          bindtouchmove="touchM"
-          bindtouchend="touchE"
+          catchtouchmove="touchM"
+          catchtouchend="touchE"
           data-index="{{index}}"
         >
           <checkbox value="{{item.name}}" checked="{{item.checked}}"  data-index="{{index}}"/>
@@ -55,4 +55,4 @@
       Completed
     </button>
   </view>
-</view>
+</scroll-view>
